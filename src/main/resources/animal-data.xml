@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE animals SYSTEM "animal-data.dtd">
+
+<animals>
+    <category id="cat-feline"/>
+    <animal id="a1">
+        <name>fennec</name>
+        <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi cupiditate doloremque ducimus eius enim exercitationem illum laudantium, nobis perspiciatis quam quisquam quod quos reiciendis, sapiente sequi similique velit voluptate.</description>
+        <image>fennec.jpg</image>
+    </animal>
+    <animal id="a2">
+        <name>red-panda</name>
+        <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aperiam autem eligendi eum numquam quia veniam voluptatibus. Cum earum eius error et laudantium minus quae quam repudiandae tempore temporibus.</description>
+        <image>red-panda.jpg</image>
+    </animal>
+</animals>

@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="DataBase-Animals">
+    <output-path>$PROJECT_DIR$/out/artifacts/DataBase_Animals</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="org.adibals.databaseanimals.App" />
+        <option name="description" value="A database app" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="DataBase Alpha" />
+        <option name="vendor" value="None" />
+        <option name="version" value="Alpha 1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="DataBase_Animals.jar">
+        <element id="module-output" name="DataBase-Animals" />
+      </element>
+    </root>
+  </artifact>
+</component>
