@@ -11,8 +11,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class XmlLoader {
@@ -23,7 +21,7 @@ public class XmlLoader {
 
     public XmlLoader() throws ParserConfigurationException, IOException, SAXException {
         System.out.println(docPath);
-        dataBase = builder.parse(new File(docPath+"\\DataMaze\\data\\animal-data.xml"));
+        dataBase = builder.parse(new File(docPath + "\\DataMaze\\data\\animal-data.xml"));
         dataBase.getDocumentElement().normalize();
     }
 
@@ -77,11 +75,18 @@ public class XmlLoader {
         return getElementByName(node, "description");
     }
 
+    public static String getCategoryOf(Node node) {
+        if (node.getParentNode().getAttributes().getNamedItem("id").getNodeValue() != null) {
+            return node.getParentNode().getAttributes().getNamedItem("id").getNodeValue();
+        }
+        return null;
+    }
+
     public String[] getGetAllCategories() {
         ArrayList<String> categories = new ArrayList<>();
         NodeList cats = dataBase.getElementsByTagName("category");
-        for (int i = 0; i < getGetAllCategories().length; i++) {
-            categories.add(cats.item(i).getTextContent());
+        for (int i = 0; i < cats.getLength(); i++) {
+            categories.add(cats.item(i).getAttributes().getNamedItem("id").getNodeValue());
         }
         return categories.toArray(new String[0]);
     }

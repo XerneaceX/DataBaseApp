@@ -1,8 +1,0 @@
-<!ELEMENT animals (category*, animal*)>
-<!ELEMENT category EMPTY >
-<!ATTLIST category id ID #REQUIRED>
-<!ELEMENT animal (name, description, image)>
-<!ELEMENT name (#PCDATA)>
-<!ELEMENT image (#PCDATA)>
-<!ELEMENT description (#PCDATA)>
-<!ATTLIST animal id ID #REQUIRED>
