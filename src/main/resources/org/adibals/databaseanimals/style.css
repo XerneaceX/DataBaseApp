@@ -1,0 +1,13 @@
+* {
+    -fx-base: #1C325B;
+    -fx-text-fill: white;
+}
+
+*:hover {
+    -fx-hover: red;
+}
+
+#mainTextArea {
+    -fx-text-fill: #ffffff;
+    -fx-text-inner-color: #ffffff;
+}

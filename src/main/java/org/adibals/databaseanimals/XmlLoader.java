@@ -17,11 +17,14 @@ public class XmlLoader {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder = factory.newDocumentBuilder();
     Document dataBase = null;
-    String docPath = System.getProperty("user.home");
+    public static final String HOME = System.getProperty("user.home");
 
     public XmlLoader() throws ParserConfigurationException, IOException, SAXException {
-        System.out.println(docPath);
-        dataBase = builder.parse(new File(docPath + "\\DataMaze\\data\\animal-data.xml"));
+        System.out.println(HOME);
+        dataBase = builder.parse(new File(HOME + "\\DataMaze\\data\\animal-data.xml"));
+        if (dataBase == null) {
+            App.genFiles();
+        }
         dataBase.getDocumentElement().normalize();
     }
 

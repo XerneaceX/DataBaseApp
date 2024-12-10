@@ -63,6 +63,7 @@ public class Controller {
             Button button = new Button(XmlLoader.getNameOf(animal));
             button.setId(XmlLoader.getIDOf(animal));
             button.prefWidthProperty().bind(buttonContainer.widthProperty());
+            button.getStyleClass().add("highlight");
             button.setOnAction(actionEvent -> {
                 // set image
                 mainImageView.setImage(null);
@@ -70,6 +71,7 @@ public class Controller {
                 System.out.println(file.toURI().toString());
                 Image image = new Image(file.toURI().toString());
                 mainImageView.setImage(image);
+
 
                 // set text under
                 mainTextArea.setText(XmlLoader.getDescriptionOf(animal));
@@ -95,6 +97,7 @@ public class Controller {
         titledPane.setContent(pane);
         titledPane.setText(name);
         titledPane.setContent(vbox);
+        titledPane.getStyleClass().add("titled-pane");
         container.getChildren().add(accordion);
         return vbox;
     }
