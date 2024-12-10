@@ -1,7 +1,7 @@
 module org.adibals.databaseanimals {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
+    requires jdk.unsupported.desktop;
 
 
     opens org.adibals.databaseanimals to javafx.fxml;

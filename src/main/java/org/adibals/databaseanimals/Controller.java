@@ -1,17 +1,17 @@
 package org.adibals.databaseanimals;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TitledPane;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,6 +23,7 @@ import java.util.Objects;
 
 public class Controller {
     XmlLoader xmlLoader;
+    Color color;
 
     public Controller() throws ParserConfigurationException, IOException, SAXException {
         xmlLoader = new XmlLoader();
@@ -105,5 +106,37 @@ public class Controller {
     public void initialize() {
         buttonContainer.prefWidthProperty().bind(left.widthProperty());
         populateButtons();
+    }
+
+    public void openColorWheel() {
+        final Button button = new Button();
+        final Stage colorWheelStage = new Stage();
+        colorWheelStage.initModality(Modality.APPLICATION_MODAL);
+        colorWheelStage.initOwner(mainImageView.getScene().getWindow());
+        VBox vbox = new VBox(3);
+        ColorPicker colorPicker = new ColorPicker();
+        vbox.getChildren().add(new Text("Color picker"));
+        vbox.getChildren().add(colorPicker);
+        button.setText("Apply");
+        button.setOnAction(actionEvent -> {
+            colorWheelStage.close();
+            color = colorPicker.getValue();
+            System.out.println("Color applied: #" + color);
+            mainContent.setStyle("-fx-base: #" + color.toString().substring(2) + ";");
+        });
+        vbox.getChildren().add(button);
+        Scene colorWheelScene = new Scene(vbox, 400,400);
+        colorWheelStage.setScene(colorWheelScene);
+        colorWheelStage.show();
+
+//        colorWheelStage.setTitle("Color Picker");
+//        colorWheelStage.initModality(Modality.APPLICATION_MODAL);
+//        colorWheelStage.initOwner(this.mainImageView.getScene().getWindow());
+//        colorWheelStage.setResizable(false);
+//        VBox vbox = new VBox(20);
+//        vbox.getChildren().add(new Text("lorem"));
+//        Scene dialogScene = new Scene(vbox, 300,300);
+//        colorWheelStage.setScene(dialogScene);
+//        colorWheelStage.show();
     }
 }
